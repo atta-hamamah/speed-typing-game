@@ -46,3 +46,9 @@ textarea {
 textarea:disabled {
   background-color: #a5a2a2;
 }
+.inpnum {
+  width: 55px;
+  height: 35px;
+  color: #fffafa;
+  background-color: #00b800;
+}

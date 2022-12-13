@@ -6,10 +6,16 @@ function useWordGame(startingTime = 10) {
     const [isTimeRunning, setIsTimeRunning] = useState(false)
     const [wordCount, setWordCount] = useState(0)
     const textBoxRef = useRef(null)
+    const [newNum,setNum] = useState(0)
     
     function handleChange(e) {
         const {value} = e.target
         setText(value)
+    }
+    
+    function newNumhandleChange(e){
+        const {value} = e.target
+        setNum(value <= 0 ? 1 : value)   
     }
     
     function calculateWordCount(text) {
@@ -40,7 +46,8 @@ function useWordGame(startingTime = 10) {
         }
     }, [timeRemaining, isTimeRunning])
     
-    return {textBoxRef, handleChange, text, isTimeRunning, timeRemaining, startGame, wordCount}
+    return {textBoxRef, handleChange, text, isTimeRunning,
+            timeRemaining, startGame, wordCount, newNumhandleChange, newNum}
 }
 
 export default useWordGame

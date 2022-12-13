@@ -2,19 +2,18 @@ import React from "react"
 import useWordGame from "./hooks/useWordGame"
 
 function App() {
+    const {newNumhandleChange,newNum} = useWordGame()
     const {
         textBoxRef, 
         handleChange, 
         text, 
         isTimeRunning, 
         timeRemaining, 
-        startGame, 
-        wordCount
-    } = useWordGame(10)
-    
+        startGame,
+        wordCount} = useWordGame(newNum)
     return (
         <div>
-            <h1>How fast do you type? you have 10s</h1>
+            <h1>How fast do you type?</h1>
             <textarea
                 ref={textBoxRef}
                 onChange={handleChange}
@@ -29,6 +28,13 @@ function App() {
                 Start
             </button>
             <h1>Word count: {wordCount}</h1>
+            <h4>set the time below with seconds</h4>
+            <input
+                    type="number"
+                    value={newNum}
+                    onChange={newNumhandleChange}
+                    className="inpnum"
+                />
         </div>
     )
 }
